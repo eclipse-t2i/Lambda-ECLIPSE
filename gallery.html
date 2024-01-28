@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="Resource Efficient Text-to-Image Diffusion Models.">
+    <meta name="keywords"
+        content="Diffusion, Text-to-Image, ECLIPSE, Subject-ECLIPSE, Text-to-Image Personalization, Vision, NLP, T2I, Research, Demo, GitHub">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Gallery of Subject-ECLIPSE</title>
+
+    <!-- Google tag (gtag.js) -->
+    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-33J11TEJJD"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-33J11TEJJD');
+  </script> -->
+
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+    <link rel="stylesheet" href="./static/css/bulma.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="stylesheet" href="./static/css/index.css">
+    <link rel="icon" href="./static/images/favicon.svg">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="./static/js/fontawesome.all.min.js"></script>
+    <script src="./static/js/bulma-carousel.min.js"></script>
+    <script src="./static/js/bulma-slider.min.js"></script>
+    <script src="./static/js/index.js"></script>
+
+    <script type="module" src="https://gradio.s3-us-west-2.amazonaws.com/4.8.0/gradio.js"></script>
+
+    <style>
+        #project-previews {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px 0;
+            padding: 20px;
+        }
+
+        .project {
+            width: 300px;
+            /* Adjust as needed */
+            height: 320px;
+            /* Adjust as needed */
+            border: 1px solid #ddd;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .project img {
+            width: 100%;
+            /* Make image fill the container */
+            height: 200px;
+            /* Adjust height as needed */
+            object-fit: cover;
+        }
+
+        .project h3,
+        .project p {
+            margin: 5px 0;
+        }
+
+        /* Hover effect */
+        .project:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        #project-previews a.project {
+            text-decoration: none;
+            /* Remove underline from links */
+            color: inherit;
+            /* Use the parent's text color */
+            display: block;
+            /* Make the anchor tag behave like a block element */
+        }
+
+        #project-previews a.project:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+        <div class="navbar-menu">
+            <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+                <a class="navbar-item" href="https://maitreyapatel.com/">
+                    <span class="icon">
+                        <i class="fas fa-home"></i>
+                    </span>
+                </a>
+                <div class="navbar-item has-dropdown is-hoverable">
+                    <a class="navbar-link">
+                        More Research
+                    </a>
+                    <div class="navbar-dropdown">
+                        <a class="navbar-item" href="https://eclipse-t2i.vercel.app">
+                            ECLIPSE (Effecient T2I)
+                        </a>
+                        <a class="navbar-item" href="https://conceptbed.github.io">
+                            ConceptBed (T2I Evaluations)
+                        </a>
+                        <a class="navbar-item" href="https://wouaf.vercel.app">
+                            WOUAF (Secure T2I)
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </nav>
+
+
+    <section class="hero">
+        <div class="hero-body">
+            <div class="container is-max-desktop">
+                <div class="columns is-centered">
+                    <div class="column has-text-centered">
+                        <h1 class="title is-1 publication-title"> <span class="dnerf">Gallery of
+                                <i>Subject-ECLIPSE</i></span>
+                        </h1>
+                        <div class="is-size-5 publication-authors">
+                            <span class="author-block">
+                                <a href="https://maitreyapatel.com" style="color:#f68946;font-weight:normal;">Maitreya
+                                    Patel</a>*,
+                            </span>
+                            <span class="author-block">
+                                <a href="#" style="color:#f68946;font-weight:normal;">Sangmin Jung</a>*,
+                            </span>
+                            <span class="author-block">
+                                <a href="https://www.public.asu.edu/~cbaral/"
+                                    style="color:#f68946;font-weight:normal;">Chitta
+                                    Baral</a>,
+                            </span>
+                            <span class="author-block">
+                                <a href="https://yezhouyang.engineering.asu.edu/"
+                                    style="color:#f68946;font-weight:normal;">Yezhou
+                                    Yang</a>
+                            </span>
+                        </div>
+
+                        <div class="is-size-5 publication-authors">
+                            <span class="author-block"><b style="color:#f68946; font-weight:normal"></b>Arizona State
+                                University</span>
+                        </div>
+
+                        <div class="column has-text-centered">
+                            <div class="publication-links">
+                                <!-- PDF Link. -->
+                                <span class="link-block">
+                                    <a href="#" class="external-link button is-normal is-rounded is-dark">
+                                        <span class="icon">
+                                            <i class="ai ai-arxiv"></i>
+                                        </span>
+                                        <span>Subject-ECLIPSE (arXiv)</span>
+                                    </a>
+                                    <a href="./static/docs/Revising_Text_to_Image_Prior_for_Text_Conditioned_Diffusion_Models____ArXiv.pdf"
+                                        class="external-link button is-normal is-rounded is-dark">
+                                        <span class="icon">
+                                            <i class="ai ai-arxiv"></i>
+                                        </span>
+                                        <span>ECLIPSE (arXiv)</span>
+                                    </a>
+                                </span>
+                                <!-- Huggingface -->
+                                <span class="link-block">
+                                    <a href="https://huggingface.co/ECLIPSE-Community"
+                                        class="external-link button is-normal is-rounded is-dark">
+                                        <span class="icon">
+                                            <i class="ai">🤗</i>
+                                        </span>
+                                        <span>Huggingface</span>
+                                    </a>
+                                </span>
+                                <!-- Code Link. -->
+                                <span class="link-block">
+                                    <a href="https://github.com/eclipse-t2i/eclipse-inference"
+                                        class="external-link button is-normal is-rounded is-dark">
+                                        <span class="icon">
+                                            <i class="fab fa-github"></i>
+                                        </span>
+                                        <span>Inference Code</span>
+                                    </a>
+                                </span>
+                                <span class="link-block">
+                                    <a href="#" class="external-link button is-normal is-rounded is-dark">
+                                        <span class="icon">
+                                            <i class="fab fa-github"></i>
+                                        </span>
+                                        <span>Training Code (soon)</span>
+                                    </a>
+                                </span>
+                                <span class="link-block">
+                                    <a href="https://huggingface.co/spaces/ECLIPSE-Community/ECLIPSE-Kandinsky-v2.2"
+                                        class="external-link button is-normal is-rounded is-dark">
+                                        <span class="icon">
+                                            <i class="far fa-images"></i>
+                                        </span>
+                                        <span>Demo (soon)</span>
+                                    </a>
+                                </span>
+                                <span class="link-block">
+                                    <a href="./gallery.html" class="external-link button is-normal is-rounded is-dark">
+                                        <span class="icon">
+                                            <i class="far fa-images"></i>
+                                        </span>
+                                        <span>Gallery</span>
+                                    </a>
+                                </span>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="hero teaser">
+        <div class="container is-max-desktop">
+            <div class="hero-body">
+                <h4 class="subtitle has-text-centered">
+                    <span class="dnerf">This webpage would be slower to load.</span>
+                </h4>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container is-max-desktop">
+            <!-- Abstract. -->
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-four-fifths">
+                    <h2 class="title is-3">Overiew</h2>
+                    <img src="./static/images/figs/fullsize/teaser_overview.png">
+                    <br>
+                    <img src="./static/images/figs/fullsize/examples.png">
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="section">
+        <div class="container is-max-desktop">
+            <!-- Abstract. -->
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-four-fifths">
+                    <h2 class="title is-3">Comparison with Baselines</h2>
+                    <img src="./static/images/figs/fullsize/single_subject.png">
+                    <br>
+                    <img src="./static/images/figs/fullsize/multi_subject.png">
+                    <br>
+                    <img src="./static/images/figs/fullsize/edge.png">
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="section">
+        <div class="container is-max-desktop">
+            <!-- Abstract. -->
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-four-fifths">
+                    <h2 class="title is-3">Ablations (w Failures)</h2>
+                    <img src="./static/images/figs/fullsize/ablation_complexity.png">
+                    <br>
+                    <img src="./static/images/figs/fullsize/ablation_consistency.png">
+                    <br>
+                    <img src="./static/images/figs/fullsize/ablation_face.png">
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+    <section class="footer" id="BibTeX">
+        <div class="container is-max-desktop content">
+            <h2 class="title">BibTeX</h2>
+            <pre><code>@article{patel2024subject,
+    author = {Patel, Maitreya and Jung, Sangmin and Baral, Chitta and Yang, Yezhou},
+    title = {Subject-ECLIPSE: Rethinking Multi-Concept Customization for Text-To-Image Diffusion Models},
+    year = {2024},
+}</code></pre>
+        </div>
+    </section>
+
+    <!-- Project Previews Section -->
+    <section class="section">
+        <div class="container is-max-desktop">
+            <!-- Abstract. -->
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-four-fifths">
+                    <h2 class="title is-3">Relevant Projects</h2>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section" id="project-previews">
+        <a href="https://wouaf.vercel.app/" class="project">
+            <img src="./static/images/wouaf.png">
+            <h3 class="title is-5">WOUAF</h3>
+            <p>Weight Modulation for User Attribution and Fingerprinting in T2I Models. </p>
+        </a>
+
+        <a href="https://conceptbed.github.io/" class="project">
+            <img src="./static/images/conceptbed.png">
+            <h3 class="title is-5">ConceptBed</h3>
+            <p>Evaluating Concept Learning Abilities of T2I Models</p>
+        </a>
+    </section>
+
+
+
+
+    <footer class="footer">
+        <div class="container">
+            <div class="content has-text-centered">
+                <a class="icon-link" href="#">
+                    <i class="fas fa-file-pdf"></i>
+                </a>
+                <a class="icon-link" href="https://github.com/maitreyapatel" class="external-link" disabled>
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+            <div class="columns is-centered">
+                <div class="column is-8">
+                    <div class="content">
+                        <center>
+                            <p>
+                                This website template is take from <a
+                                    href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>
+                                and
+                                modified by <a href="https://maitreyapatel.com">Maitreya Patel</a>.
+                            </p>
+                        </center>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

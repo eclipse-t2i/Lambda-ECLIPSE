@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="Resource Efficient Text-to-Image Diffusion Models.">
+  <meta name="keywords"
+    content="Diffusion, Text-to-Image, ECLIPSE, Subject-ECLIPSE, Text-to-Image Personalization, Vision, NLP, T2I, Research, Demo, GitHub">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Subject-ECLIPSE: Rethinking Multi-Concept Customization for Text-To-Image Diffusion Models</title>
+
+  <!-- Google tag (gtag.js) -->
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-33J11TEJJD"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-33J11TEJJD');
+  </script> -->
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+
+  <script type="module" src="https://gradio.s3-us-west-2.amazonaws.com/4.8.0/gradio.js"></script>
+
+  <style>
+    #project-previews {
+      display: flex;
+      justify-content: space-around;
+      margin: 20px 0;
+      padding: 20px;
+    }
+
+    .project {
+      width: 300px;
+      /* Adjust as needed */
+      height: 320px;
+      /* Adjust as needed */
+      border: 1px solid #ddd;
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .project img {
+      width: 100%;
+      /* Make image fill the container */
+      height: 200px;
+      /* Adjust height as needed */
+      object-fit: cover;
+    }
+
+    .project h3,
+    .project p {
+      margin: 5px 0;
+    }
+
+    /* Hover effect */
+    .project:hover {
+      transform: scale(1.05);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #project-previews a.project {
+      text-decoration: none;
+      /* Remove underline from links */
+      color: inherit;
+      /* Use the parent's text color */
+      display: block;
+      /* Make the anchor tag behave like a block element */
+    }
+
+    #project-previews a.project:hover {
+      transform: scale(1.05);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+    <div class="navbar-menu">
+      <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+        <a class="navbar-item" href="https://maitreyapatel.com/">
+          <span class="icon">
+            <i class="fas fa-home"></i>
+          </span>
+        </a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">
+            More Research
+          </a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://eclipse-t2i.vercel.app">
+              ECLIPSE (Effecient T2I)
+            </a>
+            <a class="navbar-item" href="https://conceptbed.github.io">
+              ConceptBed (T2I Evaluations)
+            </a>
+            <a class="navbar-item" href="https://wouaf.vercel.app">
+              WOUAF (Secure T2I)
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </nav>
+
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title"> <span class="dnerf"><i>Subject-ECLIPSE</i></span>: <p
+                style="font-size:xx-large;">
+                Rethinking Multi-Concept Customization for Text-To-Image Diffusion Models</p>
+            </h1>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <a href="https://maitreyapatel.com" style="color:#f68946;font-weight:normal;">Maitreya
+                  Patel</a>*,
+              </span>
+              <span class="author-block">
+                <a href="#" style="color:#f68946;font-weight:normal;">Sangmin Jung</a>*,
+              </span>
+              <span class="author-block">
+                <a href="https://www.public.asu.edu/~cbaral/" style="color:#f68946;font-weight:normal;">Chitta
+                  Baral</a>,
+              </span>
+              <span class="author-block">
+                <a href="https://yezhouyang.engineering.asu.edu/" style="color:#f68946;font-weight:normal;">Yezhou
+                  Yang</a>
+              </span>
+            </div>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block"><b style="color:#f68946; font-weight:normal"></b>Arizona State
+                University</span>
+            </div>
+
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <!-- PDF Link. -->
+                <span class="link-block">
+                  <a href="#" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                    </span>
+                    <span>Subject-ECLIPSE (arXiv)</span>
+                  </a>
+                  <a href="./static/docs/Revising_Text_to_Image_Prior_for_Text_Conditioned_Diffusion_Models____ArXiv.pdf"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                    </span>
+                    <span>ECLIPSE (arXiv)</span>
+                  </a>
+                </span>
+                <!-- Huggingface -->
+                <span class="link-block">
+                  <a href="https://huggingface.co/ECLIPSE-Community"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="ai">🤗</i>
+                    </span>
+                    <span>Huggingface</span>
+                  </a>
+                </span>
+                <!-- Code Link. -->
+                <span class="link-block">
+                  <a href="https://github.com/eclipse-t2i/eclipse-inference"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Inference Code</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a href="#" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Training Code (soon)</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a href="https://huggingface.co/spaces/ECLIPSE-Community/ECLIPSE-Kandinsky-v2.2"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="far fa-images"></i>
+                    </span>
+                    <span>Demo (soon)</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a href="./gallery.html" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="far fa-images"></i>
+                    </span>
+                    <span>Gallery</span>
+                  </a>
+                </span>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="hero teaser">
+    <div class="container is-max-desktop">
+      <div class="hero-body">
+        <center>
+          <img src="./static/images/figs/compressed/teaser_overview.png" width="70%">
+        </center>
+        <h4 class="subtitle has-text-centered">
+          <span class="dnerf">Subject-ECLIPSE qualitative overview on simple/multi-subject T2I with edge
+            guidance.</span>
+        </h4>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="footer">
+    <div class="container is-max-desktop">
+      <!-- Abstract. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              Despite the recent advances in personalized text-to-image (P-T2I) generative models, subject-driven T2I
+              remains challenging.
+              The primary bottlenecks include
+              1) Intensive training resource requirements,
+              2) Hyper-parameter sensitivity leading to inconsistent outputs, and
+              3) Balancing the intricacies of novel visual concept and composition alignment.
+              We start by re-iterating the core philosophy of T2I diffusion models to address the above limitations.
+              Predominantly, contemporary subject-driven T2I approaches hinge on Latent Diffusion Models (LDMs), which
+              facilitate T2I mapping through cross-attention layers.
+              While LDMs offer distinct advantages, P-T2I methods' reliance on the latent space of these diffusion
+              models significantly escalates resource demands, leading to inconsistent results and necessitating
+              numerous iterations for a single desired image.
+              Recently, <b style="font-size: large;"><i>ECLIPSE</i></b> has demonstrated a more resource-efficient
+              pathway for training UnCLIP-based T2I models,
+              circumventing the need for diffusion text-to-image priors.
+              Building on this, we introduce <b style="font-size: large;"><i>Subject-ECLIPSE</i></b>.
+              Our method illustrates that effective P-T2I does not necessarily depend on the latent space of diffusion
+              models.
+              <b style="font-size: large;"><i>Subject-ECLIPSE</i></b> achieves single, multi-subject, and edge-guided
+              T2I personalization with just 34M parameters and is trained on a mere 74 GPU hours using 1.6M image-text
+              interleaved data.
+              Through extensive experiments, we also establish that <b
+                style="font-size: large;"><i>Subject-ECLIPSE</i></b> surpasses existing baselines in composition
+              alignment while preserving concept alignment performance, even with significantly lower resource
+              utilization.
+
+
+              <br>
+              <br>
+
+              <center>
+                <img src="./static/images/overview.gif">
+              </center>
+            <h4 class="subtitle has-text-centered">
+              <span class="dnerf"> High-level overview of the how Subject-ECLIPSE (34M) prior model can effectively
+                perform Multi-Subject driven T2I.</span>
+            </h4>
+
+          </div>
+        </div>
+      </div>
+      <!--/ Abstract. -->
+
+      <!-- <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <img src="./static/images/figs/fig4-min.png">
+          <h2 class="subtitle has-text-centered">
+            Uncurated images of the original and fingerprinted Stable Diffusion models on MS-COCO and LAION Aesthetics.
+            Pixel-wise differences are multiplied by a factor of 5 for a better view. </h2>
+        </div>
+      </div>
+
+      <br>
+
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <img src="./static/images/figs/fig5.png">
+          <h2 class="subtitle has-text-centered">
+            Robust user attribution against image post-processes. </h2>
+        </div>
+      </div> -->
+
+  </section>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- Abstract. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Method</h2>
+          <!-- <div class="content has-text-justified"> -->
+          <img src="./static/images/figs/fullsize/method.png">
+          <h2 class="subtitle has-text-centered">
+            We extend the ECLIPSE T2I prior with the image-text interleaved training to perform the Multi-Subject T2I.
+          </h2>
+        </div>
+        <!-- </div> -->
+      </div>
+    </div>
+  </section>
+
+  <section class="footer">
+    <div class="container is-max-desktop">
+      <!-- Abstract. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Subject-ECLIPSE Demo</h2>
+          <div class="content has-text-justified">
+            <p class="has-text-centered">Soon!</p>
+            <!-- <gradio-app src="https://eclipse-community-eclipse-kandinsky-v2-2.hf.space"></gradio-app> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- Abstract. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Examples</h2>
+          <h4 class="has-text-centered"><a>Gallery with High Resolution Examples</a></h4>
+          <br>
+          <!-- <div class="content has-text-justified"> -->
+          <img src="./static/images/figs/compressed/examples.png">
+
+        </div>
+        <!-- </div> -->
+      </div>
+    </div>
+
+
+  </section>
+
+
+
+
+
+
+
+
+  <section class="footer" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <pre><code>@article{patel2024subject,
+    author = {Patel, Maitreya and Jung, Sangmin and Baral, Chitta and Yang, Yezhou},
+    title = {Subject-ECLIPSE: Rethinking Multi-Concept Customization for Text-To-Image Diffusion Models},
+    year = {2024},
+}</code></pre>
+    </div>
+  </section>
+
+  <!-- Project Previews Section -->
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- Abstract. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Relevant Projects</h2>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section" id="project-previews">
+    <a href="https://wouaf.vercel.app/" class="project">
+      <img src="./static/images/wouaf.png">
+      <h3 class="title is-5">WOUAF</h3>
+      <p>Weight Modulation for User Attribution and Fingerprinting in T2I Models. </p>
+    </a>
+
+    <a href="https://conceptbed.github.io/" class="project">
+      <img src="./static/images/conceptbed.png">
+      <h3 class="title is-5">ConceptBed</h3>
+      <p>Evaluating Concept Learning Abilities of T2I Models</p>
+    </a>
+  </section>
+
+
+
+
+  <footer class="footer">
+    <div class="container">
+      <div class="content has-text-centered">
+        <a class="icon-link" href="#">
+          <i class="fas fa-file-pdf"></i>
+        </a>
+        <a class="icon-link" href="https://github.com/maitreyapatel" class="external-link" disabled>
+          <i class="fab fa-github"></i>
+        </a>
+      </div>
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+            <center>
+              <p>
+                This website template is take from <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>
+                and
+                modified by <a href="https://maitreyapatel.com">Maitreya Patel</a>.
+              </p>
+            </center>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>
