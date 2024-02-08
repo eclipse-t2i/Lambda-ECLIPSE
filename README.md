@@ -4,7 +4,7 @@ This is the repository that contains the source code for the [&lambda; ECLIPSE P
 
 If you find &lambda;-ECLIPSE useful for your work please cite:
 ```
-@article{patel2023eclipse,
+@article{patel2024lambda,
     author = {Patel, Maitreya and Jung, Sangmin and Baral, Chitta and Yang, Yezhou},
     title = {λ-ECLIPSE: Multi-Concept Personalized Text-to-Image Diffusion Models by Leveraging CLIP Latent Space},
     year = {2024},
