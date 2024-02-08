@@ -168,14 +168,22 @@
               <div class="publication-links">
                 <!-- PDF Link. -->
                 <span class="link-block">
+                  <a href="./static/docs/lambda-eclipse-compressed.pdf"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                    </span>
+                    <span>PDF (compressed)</span>
+                  </a>
+                </span>
+                <span class="link-block">
                   <a href="#" class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
                       <i class="ai ai-arxiv"></i>
                     </span>
                     <span><span>&#955;</span>-ECLIPSE (arXiv)</span>
                   </a>
-                  <a href="./static/docs/Revising_Text_to_Image_Prior_for_Text_Conditioned_Diffusion_Models____ArXiv.pdf"
-                    class="external-link button is-normal is-rounded is-dark">
+                  <a href="https://arxiv.org/abs/2312.04655" class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
                       <i class="ai ai-arxiv"></i>
                     </span>
@@ -184,7 +192,7 @@
                 </span>
                 <!-- Huggingface -->
                 <span class="link-block">
-                  <a href="https://huggingface.co/ECLIPSE-Community"
+                  <a href="https://huggingface.co/ECLIPSE-Community/Lambda-ECLIPSE-Prior-v1.0"
                     class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
                       <i class="ai">🤗</i>
@@ -203,20 +211,12 @@
                   </a>
                 </span>
                 <span class="link-block">
-                  <a href="#" class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon">
-                      <i class="fab fa-github"></i>
-                    </span>
-                    <span>Training Code (soon)</span>
-                  </a>
-                </span>
-                <span class="link-block">
-                  <a href="https://huggingface.co/spaces/ECLIPSE-Community/ECLIPSE-Kandinsky-v2.2"
+                  <a href="https://huggingface.co/spaces/ECLIPSE-Community/lambda-eclipse-personalized-t2i"
                     class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
                       <i class="far fa-images"></i>
                     </span>
-                    <span>Demo (soon)</span>
+                    <span>Demo</span>
                   </a>
                 </span>
                 <span class="link-block">
@@ -243,8 +243,10 @@
           <img src="./static/images/figs/compressed/teaser_overview.png" width="70%">
         </center>
         <h4 class="subtitle has-text-centered">
-          <span>&#955;</span><span class="dnerf"></span>-ECLIPSE qualitative overview on simple/multi-subject T2I with
-          edge
+          <span>&#955;</span><span class="dnerf"></span>-ECLIPSE a resource efficient way (trained on mere 74 GPU hours)
+          to perform
+          single/multi-subject T2I with
+          edge and without
           guidance.</span>
         </h4>
       </div>
@@ -353,7 +355,9 @@
         <div class="column is-four-fifths">
           <h2 class="title is-3"><span>&#955;</span>-ECLIPSE Demo</h2>
           <div class="content has-text-justified">
-            <p class="has-text-centered">Soon!</p>
+            <p class="has-text-centered"><a
+                href="https://huggingface.co/spaces/ECLIPSE-Community/lambda-eclipse-personalized-t2i">HuggingFace
+                Demo!</a></p>
             <!-- <gradio-app src="https://eclipse-community-eclipse-kandinsky-v2-2.hf.space"></gradio-app> -->
           </div>
         </div>
@@ -390,7 +394,7 @@
   <section class="footer" id="BibTeX">
     <div class="container is-max-desktop content">
       <h2 class="title">BibTeX</h2>
-      <pre><code>@article{patel2024subject,
+      <pre><code>@article{patel2024lambda,
     author = {Patel, Maitreya and Jung, Sangmin and Baral, Chitta and Yang, Yezhou},
     title = {<span>&#955;</span>-ECLIPSE: Multi-Concept Personalized Text-to-Image Diffusion Models by Leveraging CLIP Latent Space},
     year = {2024},

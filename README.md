@@ -1,6 +1,6 @@
 # &lambda; ECLIPSE
 
-This is the repository that contains the source code for the [&lambda; ECLIPSE Project](https://eclipse-t2i.vercel.app/).
+This is the repository that contains the source code for the [&lambda; ECLIPSE Project](https://eclipse-t2i.github.io/Lambda-ECLIPSE/).
 
 If you find &lambda;-ECLIPSE useful for your work please cite:
 ```
